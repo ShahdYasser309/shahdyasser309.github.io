@@ -48,22 +48,17 @@ body {
   border-radius: 16px;
   border: 2px solid #ffe0ea; /* outline */
   background: #fffdfd;
-
-  opacity: 0;
-  transform: translateY(40px);
   transition: all 0.8s ease;
 }
 
 /* Show on scroll */
 .section.show {
-  opacity: 1;
-  transform: translateY(0);
+  
 }
 
-/* Section Hover */
+/* Section Hover لما الماوس يجي علي الكارت يطلع فوق 5px*/
 .section:hover {
   box-shadow: 0 12px 30px rgba(255, 182, 193, 0.5);
-  transform: translateY(-5px);
 }
 
 /* Section Title */
@@ -80,6 +75,10 @@ p {
   line-height: 1.7;
 
 }
+.span{
+  color:#b85c7a;
+
+}
 
 /* Lists */
 ul {
@@ -94,8 +93,8 @@ li {
 
 /* List Hover */
 li:hover {
-  transform: translateX(10px);
   color: #b85c7a;
+  text-shadow: #f3a6bf;
 }
 
 /* Links */
@@ -108,16 +107,10 @@ a {
 a:hover {
   text-decoration: underline;
 }
-
-/* Responsive */
-@media (max-width: 768px) {
   #container {
     width: 90%;
     padding: 25px;
   }
 
-  #id1 {
-    font-size: 32px;
-  }
-}
+  
 
