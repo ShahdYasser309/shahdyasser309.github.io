@@ -1,0 +1,123 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, sans-serif;
+}
+
+/* Body */
+body {
+  background: linear-gradient(135deg, #fff0f5, #fff9fb)
+  padding: 40px 0;
+}
+
+/* Container */
+#container {
+  width: 75%;
+  margin: auto;
+  background: #ffffff;
+  padding: 45px;
+  border-radius: 20px;
+  display: grid;
+  column-gap: 35px;
+}
+
+/* Main Title */
+#id1 {
+  text-align: center;
+  font-size: 42px;
+  color: #b85c7a;
+  letter-spacing: 4px;
+  margin-bottom: 8px;
+  transition: 0.3s;
+}
+
+/* Subtitle */
+#paragraph1 {
+  text-align: center;
+  font-size: 22px;
+  color: #d88aa4;
+  margin-bottom: 35px;
+}
+
+/* Section Card */
+.section {
+  margin-bottom: 35px;
+  padding: 20px;
+  border-radius: 16px;
+  border: 2px solid #ffe0ea; /* outline */
+  background: #fffdfd;
+
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease;
+}
+
+/* Show on scroll */
+.section.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Section Hover */
+.section:hover {
+  box-shadow: 0 12px 30px rgba(255, 182, 193, 0.5);
+  transform: translateY(-5px);
+}
+
+/* Section Title */
+.section h2 {
+  color: #b85c7a;
+  margin-bottom: 15px;
+  border-left: 6px solid #f3a6bf;
+  padding-left: 12px;
+}
+
+/* Text */
+p {
+  margin-bottom: 8px;
+  line-height: 1.7;
+
+}
+
+/* Lists */
+ul {
+  margin-left: 25px;
+  margin-top: 10px;
+}
+
+li {
+  margin-bottom: 7px;
+  transition: 0.3s;
+}
+
+/* List Hover */
+li:hover {
+  transform: translateX(10px);
+  color: #b85c7a;
+}
+
+/* Links */
+a {
+  color: #b85c7a;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  #container {
+    width: 90%;
+    padding: 25px;
+  }
+
+  #id1 {
+    font-size: 32px;
+  }
+}
+
