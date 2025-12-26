@@ -34,6 +34,11 @@ document.addEventListener("DOMContentLoaded", () => {
     let i = 0;
     function typingEffect() {
       if (i < text.length) {
+        
+        if (text.charAt(i) === ' ') {
+          subtitle.innerHTML += '&nbsp;';
+        }
+
         subtitle.innerText += text.charAt(i);
         i++;
         setTimeout(typingEffect, 65);
@@ -47,24 +52,49 @@ document.addEventListener("DOMContentLoaded", () => {
   if (videoElement) {
     const videoOptions = [
       {
+        src: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+        poster: "https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1200&q=80"
+      },
+      {
         src: "https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4",
         poster: "https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=1200&q=80"
       },
       {
-        src: "https://cdn.coverr.co/videos/coverr-a-remote-fire-4363/1080p.mp4",
+        src: "https://interactive-examples.mdn.mozilla.net/media/cc0-videos/earth.mp4",
         poster: "https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=1200&q=80"
-      },
-      {
-        src: "https://storage.googleapis.com/coverr-main/mp4/Mt_Baker.mp4",
-        poster: "https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1200&q=80"
       }
     ];
 
-    const chosenVideo = videoOptions[Math.floor(Math.random() * videoOptions.length)];
-    videoElement.src = chosenVideo.src;
-    videoElement.poster = chosenVideo.poster;
-    videoElement.load();
-    videoElement.play().catch(() => {});
+    let videoIndex = Math.floor(Math.random() * videoOptions.length);
+
+    const setVideo = () => {
+      const choice = videoOptions[videoIndex];
+      videoElement.src = choice.src;
+      videoElement.poster = choice.poster;
+      videoElement.load();
+    };
+
+    const showFallback = () => {
+      if (!document.querySelector("b.video-fallback")) {
+        videoElement.insertAdjacentHTML(
+          "afterend",
+          '<p class="video-fallback">Video is unavailable right now. Please try reloading.</p>'
+        );
+      }
+    };
+
+    const tryNext = () => {
+      videoIndex = (videoIndex + 1) % videoOptions.length;
+      setVideo();
+    };
+
+    videoElement.addEventListener("error", () => {
+      // Rotate through sources; if it keeps failing, show fallback.
+      tryNext();
+      setTimeout(showFallback, 500);
+    });
+
+    setVideo();
   }
 
   const audioToggle = document.getElementById("audio-toggle");
