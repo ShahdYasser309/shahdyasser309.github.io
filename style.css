@@ -8,7 +8,7 @@
 
 /* Body */
 body {
-  background: linear-gradient(135deg, #fff0f5, #fff9fb)
+  background: linear-gradient(135deg, #fff0f5, #fff9fb);
   padding: 40px 0;
 }
 
@@ -41,6 +41,24 @@ body {
   margin-bottom: 35px;
 }
 
+/* Profile block */
+.profile-block {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.profile-block img {
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #ffe0ea;
+  box-shadow: 0 10px 20px rgba(184, 92, 122, 0.2);
+}
+
 /* Section Card */
 .section {
   margin-bottom: 35px;
@@ -49,11 +67,14 @@ body {
   border: 2px solid #ffe0ea; /* outline */
   background: #fffdfd;
   transition: all 0.8s ease;
+  opacity: 0;
+  transform: translateY(30px);
 }
 
 /* Show on scroll */
 .section.show {
-  
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* Section Hover لما الماوس يجي علي الكارت يطلع فوق 5px*/
@@ -107,10 +128,53 @@ a {
 a:hover {
   text-decoration: underline;
 }
+
+/* Media block */
+.media-wrapper {
+  display: grid;
+  gap: 12px;
+}
+
+.media-wrapper video {
+  width: 100%;
+  border-radius: 14px;
+  border: 2px solid #ffe0ea;
+  background: #000;
+  box-shadow: 0 10px 28px rgba(184, 92, 122, 0.15);
+}
+
+/* Controls */
+.controls {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 16px;
+}
+
+.controls button {
+  background: #b85c7a;
+  color: #fff;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 999px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 8px 16px rgba(184, 92, 122, 0.25);
+}
+
+.controls button:hover {
+  transform: translateY(-2px);
+}
+@media (max-width: 900px) {
   #container {
     width: 90%;
     padding: 25px;
   }
 
-  
+  .profile-block {
+    flex-direction: column;
+  }
+}
+
+
 
